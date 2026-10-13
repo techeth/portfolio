@@ -1,0 +1,437 @@
+/* ==========================================================================
+   AMIT.OS — Skills Constellation Component Styles
+   Cinematic Monochrome Space Aesthetic
+   ========================================================================== */
+
+.skillsSection {
+  position: relative;
+  width: 100%;
+  background-color: #030507;
+  padding: 6.5rem 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Cosmic background atmosphere */
+.skillsSection::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: 25%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 750px;
+  max-height: 750px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sectionContainer {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP 2-COLUMN LAYOUT
+   -------------------------------------------------------------------------- */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: HEADINGS, CATEGORY FILTER, & ACTIVE SKILL CARD
+   -------------------------------------------------------------------------- */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4cad4;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.heading {
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.16);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #9da5b4;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+/* Category Filter Panel */
+.categoryPanel {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8c95a6;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.categoryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  color: #9da5b4;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.categoryBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+}
+
+.categoryBtn.activeCategory {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.categoryDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* Active Skill Detail Card */
+.skillInspectCard {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: inspectFade 0.25s ease-out;
+}
+
+@keyframes inspectFade {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.inspectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inspectName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.inspectBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #c4cad4;
+}
+
+.inspectFocus {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #9da5b4;
+  margin: 0;
+}
+
+.learningNotice {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #f472b6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: CONSTELLATION VISUAL
+   -------------------------------------------------------------------------- */
+.constellationWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Orbital Paths SVG (Background) */
+.constellationSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Central Celestial Sphere with Code Symbol */
+.centralCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #b8c3d4 30%, #2f3642 65%, #080a0f 100%);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.3), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  user-select: none;
+  pointer-events: none;
+}
+
+.coreSymbol {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.coreRing {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  animation: coreRingRotate 45s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes coreRingRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Skill Node Button */
+.skillNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(14, 18, 26, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  user-select: none;
+}
+
+.nodeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.nodeText {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Hover, Active, and Dimmed States */
+.skillNode:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.skillNode.selectedNode {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.skillNode.selectedNode .nodeText {
+  color: #030507;
+}
+
+.skillNode.selectedNode .nodeDot {
+  background-color: #030507;
+  box-shadow: none;
+}
+
+.skillNode:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Dimmed node when another category is filtered */
+.skillNode.dimmed {
+  opacity: 0.22;
+  transform: translate(-50%, -50%) scale(0.92);
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .mainLayout {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 868px) {
+  .skillsSection {
+    padding: 4.5rem 1.25rem;
+  }
+  .mainLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .leftColumn {
+    align-items: center;
+    text-align: center;
+  }
+  .categoryPanel {
+    align-items: center;
+  }
+  .categoryList {
+    justify-content: center;
+  }
+  .skillInspectCard {
+    text-align: left;
+  }
+  .constellationWrapper {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 520px) {
+  .skillsSection {
+    padding: 3.5rem 1rem;
+  }
+  .heading {
+    font-size: 2.2rem;
+  }
+  .constellationWrapper {
+    max-width: 320px;
+  }
+  .skillNode {
+    padding: 0.25rem 0.55rem;
+  }
+  .nodeText {
+    font-size: 0.6875rem;
+  }
+  .centralCore {
+    width: 60px;
+    height: 60px;
+  }
+  .coreSymbol {
+    font-size: 1.15rem;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .coreRing {
+    animation: none !important;
+  }
+  .skillNode,
+  .categoryBtn,
+  .skillInspectCard {
+    transition: none !important;
+    animation: none !important;
+  }
+}

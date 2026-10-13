@@ -1,0 +1,360 @@
+/* ==========================================================================
+   AMIT.OS — Learning Journey Component Styles
+   Cinematic Monochrome Space Aesthetic
+   ========================================================================== */
+
+.journeySection {
+  position: relative;
+  width: 100%;
+  background-color: #030507;
+  padding: 6.5rem 1.5rem 8rem 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Lunar landscape bottom surface */
+.lunarSurface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  background-image: url("/images/lunar-landscape.webp");
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(to top, black 15%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 15%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
+}
+
+.sectionContainer {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER
+   -------------------------------------------------------------------------- */
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 4.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4cad4;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.heading {
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.16);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #9da5b4;
+  max-width: 500px;
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP TIMELINE TRACK
+   -------------------------------------------------------------------------- */
+.timelineWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+/* Connecting Line (SVG Across Track) */
+.timelineSvg {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.milestoneItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Beacon Node (Dot on the Line) */
+.beaconContainer {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.beaconDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.currentDot {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 0 16px #ffffff, 0 0 30px rgba(255, 255, 255, 0.6);
+  animation: pulseBeacon 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 14px #ffffff;
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 24px #ffffff, 0 0 40px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.futureDot {
+  background-color: transparent;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.explorerVessel {
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  color: #ffffff;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+  animation: vesselHover 4s ease-in-out infinite alternate;
+}
+
+@keyframes vesselHover {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-4px) rotate(2deg); }
+}
+
+/* Stage Badge */
+.stageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8c95a6;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.85rem;
+}
+
+.stageBadgeCurrent {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stageBadgeFuture {
+  color: #9da5b4;
+  border-style: dashed;
+}
+
+/* Milestone Card */
+.milestoneCard {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.4rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.milestoneCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.milestoneCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.milestoneCard:hover::before {
+  opacity: 1;
+}
+
+.milestoneTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.milestoneDesc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #9da5b4;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .timelineGrid {
+    gap: 1.25rem;
+  }
+  .milestoneCard {
+    padding: 1.4rem 1.15rem;
+  }
+}
+
+/* Mobile & Tablet Vertical Timeline Layout */
+@media (max-width: 868px) {
+  .journeySection {
+    padding: 4.5rem 1.25rem 6rem 1.25rem;
+  }
+  .headerContent {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .timelineWrapper {
+    padding-top: 0;
+  }
+  .timelineSvg {
+    display: none;
+  }
+  .timelineGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+  /* Continuous vertical timeline track on mobile */
+  .timelineGrid::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    bottom: 24px;
+    left: 14px;
+    width: 2px;
+    background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.2) 75%, transparent);
+    z-index: 1;
+  }
+  .milestoneItem {
+    width: 100%;
+    position: relative;
+  }
+  .beaconContainer {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    margin-bottom: 0;
+    z-index: 2;
+  }
+  .milestoneCard {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .journeySection {
+    padding: 3.5rem 1rem 5rem 1rem;
+  }
+  .heading {
+    font-size: 2.2rem;
+  }
+  .milestoneCard {
+    padding: 1.35rem 1.1rem;
+  }
+  .milestoneTitle {
+    font-size: 1.15rem;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .currentDot,
+  .explorerVessel {
+    animation: none !important;
+  }
+  .milestoneCard {
+    transition: none !important;
+  }
+}

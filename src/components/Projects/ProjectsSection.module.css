@@ -1,0 +1,612 @@
+/* ==========================================================================
+   AMIT.OS — Projects Galaxy Component Styles
+   Cinematic Monochrome Space Aesthetic
+   ========================================================================== */
+
+.projectsSection {
+  position: relative;
+  width: 100%;
+  background-color: #030507;
+  padding: 6.5rem 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ambient cosmic glow backdrop */
+.projectsSection::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.035) 0%, transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sectionContainer {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP 3-COLUMN MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: HEADINGS & INTRODUCTION
+   -------------------------------------------------------------------------- */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4cad4;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.heading {
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.16);
+}
+
+.description {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #9da5b4;
+  max-width: 440px;
+  margin-bottom: 2.25rem;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.viewAllBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.btnArrow {
+  transition: transform 0.2s ease;
+}
+
+.viewAllBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   CENTER COLUMN: INTERACTIVE GALAXY & ORBITAL PLANETS
+   -------------------------------------------------------------------------- */
+.centerGalaxy {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Orbital Paths SVG (Background) */
+.orbitSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Clickable Project Planet Button */
+.planetNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.planetSphere {
+  position: relative;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Planetary Spherical Color Themes */
+.themeSilver {
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #b0bac9 30%, #353b47 65%, #080a0e 100%);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.themeBlue {
+  background: radial-gradient(circle at 35% 35%, #d8e9ff 0%, #5280b8 35%, #182b45 70%, #060c14 100%);
+  box-shadow: 0 0 20px rgba(100, 160, 255, 0.2), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.themeIce {
+  background: radial-gradient(circle at 35% 35%, #f2f8ff 0%, #90b8db 35%, #203750 70%, #08101a 100%);
+  box-shadow: 0 0 20px rgba(160, 210, 255, 0.2), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.themeWhite {
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cfd7e3 30%, #343c4a 65%, #090c12 100%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.themeBronze {
+  background: radial-gradient(circle at 35% 35%, #ffe6cc 0%, #a37952 35%, #3b2515 70%, #0e0805 100%);
+  box-shadow: 0 0 20px rgba(255, 180, 120, 0.2), inset -4px -4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Active & Hover States */
+.planetNode:hover .planetSphere {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
+}
+
+.planetNode.selected .planetSphere {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.planetNode:focus-visible .planetSphere {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+/* Planet Label */
+.planetLabel {
+  position: absolute;
+  bottom: -22px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: #8c95a6;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.planetNode:hover .planetLabel,
+.planetNode.selected .planetLabel {
+  color: #ffffff;
+  font-weight: 600;
+  transform: translateY(2px);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: FEATURED PROJECT PANEL
+   -------------------------------------------------------------------------- */
+.rightPanel {
+  width: 100%;
+}
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0.7;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8c95a6;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.projectTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.projectDesc {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #9da5b4;
+  margin: 0;
+}
+
+.techList {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+
+.techTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.8rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #c4cad4;
+}
+
+/* Card Action Buttons */
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.caseStudyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  background: #ffffff;
+  color: #030507;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.caseStudyBtn:hover {
+  background: #f0f4fa;
+  transform: translateY(-1px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+}
+
+.actionBtnDisabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  background: rgba(255, 255, 255, 0.02);
+  color: #687282;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: not-allowed;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   CASE STUDY MODAL
+   -------------------------------------------------------------------------- */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 760px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #07090e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.modalHeader {
+  margin-bottom: 2rem;
+  padding-right: 2.5rem;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0.5rem 0;
+}
+
+.modalSection {
+  margin-bottom: 1.75rem;
+}
+
+.modalSectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8c95a6;
+  margin-bottom: 0.5rem;
+}
+
+.modalSectionText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #c4cad4;
+  margin: 0;
+}
+
+.modalBulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modalBulletItem {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #c4cad4;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.modalBulletItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1120px) {
+  .mainLayout {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .centerGalaxy {
+    order: -1;
+    grid-column: span 2;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 868px) {
+  .projectsSection {
+    padding: 4.5rem 1.25rem;
+  }
+  .mainLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .leftColumn {
+    align-items: center;
+    text-align: center;
+  }
+  .description {
+    max-width: 100%;
+  }
+  .centerGalaxy {
+    order: 0;
+    width: 100%;
+    max-width: 380px;
+  }
+  .rightPanel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .projectsSection {
+    padding: 3.5rem 1rem;
+  }
+  .heading {
+    font-size: 2.2rem;
+  }
+  .centerGalaxy {
+    max-width: 320px;
+  }
+  .projectCard {
+    padding: 1.6rem 1.25rem;
+  }
+  .projectTitle {
+    font-size: 1.45rem;
+  }
+  .cardActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .caseStudyBtn,
+  .actionBtnDisabled {
+    justify-content: center;
+  }
+  .modalContent {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .planetNode,
+  .planetSphere,
+  .projectCard,
+  .modalBackdrop {
+    transition: none !important;
+    animation: none !important;
+  }
+}

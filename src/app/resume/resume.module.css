@@ -1,0 +1,448 @@
+/* ==========================================================================
+   AMIT.OS — Recruiter-Friendly Resume Stylesheet
+   Screen View & Print-Ready (A4/Letter) Optimization
+   ========================================================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #030507;
+  color: #1a1a1a;
+  padding: 2rem 1rem 5rem 1rem;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TOP TOOLBAR (Hidden during print) */
+.toolbar {
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-sizing: border-box;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: #030507;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.downloadBtn:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.printBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.printBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   RESUME DOCUMENT CONTAINER (Clean white paper style for ATS & readability)
+   ========================================================================== */
+.resumeSheet {
+  width: 100%;
+  max-width: 850px;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 3rem 3.5rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  line-height: 1.55;
+}
+
+/* HEADER */
+.header {
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.name {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: 0.02em;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  color: #475569;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactItem:hover {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+.separator {
+  color: #cbd5e1;
+}
+
+/* SECTION STRUCTURE */
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeading {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paragraph {
+  font-size: 0.84rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0 0 0.5rem 0;
+  text-align: justify;
+}
+
+/* SKILLS GRID */
+.skillsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.skillCategoryLabel {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.skillItemsList {
+  color: #334155;
+}
+
+/* PROJECT ENTRY */
+.projectEntry {
+  margin-bottom: 0.75rem;
+}
+
+.projectHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.projectName {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.projectTech {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  font-family: var(--font-mono, monospace);
+}
+
+.projectSummary {
+  font-size: 0.84rem;
+  color: #334155;
+  margin: 0 0 0.4rem 0;
+  font-style: italic;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.83rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.bulletList li {
+  margin-bottom: 0.25rem;
+}
+
+/* EDUCATION ENTRY */
+.educationEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.educationDegree {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.educationSpecialization {
+  font-size: 0.84rem;
+  color: #334155;
+  margin-top: 0.15rem;
+}
+
+.educationInstitution {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.educationMeta {
+  text-align: right;
+  font-size: 0.8125rem;
+  color: #475569;
+}
+
+.educationDuration {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.educationLocation {
+  color: #64748b;
+}
+
+/* INTERESTS TAGS */
+.interestsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.interestTag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* ==========================================================================
+   PRINT STYLES (@media print)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .pageWrapper {
+    background: none !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  .resumeSheet {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    color: #000000 !important;
+  }
+
+  .name {
+    color: #000000 !important;
+  }
+
+  .title {
+    color: #1a1a1a !important;
+  }
+
+  .sectionHeading {
+    color: #000000 !important;
+    border-bottom: 1.5px solid #000000 !important;
+  }
+
+  .skillCategoryLabel,
+  .projectName,
+  .educationDegree {
+    color: #000000 !important;
+  }
+
+  .paragraph,
+  .skillItemsList,
+  .projectSummary,
+  .bulletList,
+  .educationSpecialization,
+  .educationInstitution {
+    color: #1a1a1a !important;
+  }
+
+  .interestTag {
+    background: none !important;
+    border: 1px solid #94a3b8 !important;
+    color: #000000 !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 680px) {
+  .resumeSheet {
+    padding: 2rem 1.5rem;
+  }
+
+  .name {
+    font-size: 1.7rem;
+  }
+
+  .title {
+    font-size: 0.85rem;
+  }
+
+  .contactRow {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .skillRow {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .projectHeader {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .educationEntry {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .educationMeta {
+    text-align: left;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    border-radius: 16px;
+    gap: 0.75rem;
+  }
+
+  .toolbarActions {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   AMIT.OS — Cinematic Monochrome Space Design System
+   Stage 01: Core Architecture & Global Design Foundation
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-space: #030507;
+  --bg-deep: #06080d;
+  --bg-surface: #0f1219;
+  --bg-glass: rgba(255, 255, 255, 0.03);
+  --bg-glass-hover: rgba(255, 255, 255, 0.07);
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #9da5b4;
+  --text-tertiary: #5d6575;
+
+  /* Borders & Highlights */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-highlight: rgba(255, 255, 255, 0.35);
+
+  /* Silver Glow & Shadows */
+  --glow-subtle: 0 0 30px rgba(255, 255, 255, 0.06);
+  --glow-silver: 0 0 45px rgba(220, 230, 245, 0.12);
+  --glow-ambient: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(5, 6, 8, 0) 70%);
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+
+  /* Radius Tokens */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Atmosphere (Deep Cosmos Ambient Field) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.35), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 180px, rgba(255, 255, 255, 0.25), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 260px 80px, rgba(255, 255, 255, 0.45), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 390px 240px, rgba(255, 255, 255, 0.2), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 520px 140px, rgba(255, 255, 255, 0.3), rgba(0,0,0,0));
+  background-size: 600px 350px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 60vh;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Container Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* Utility Typography */
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+/* Selection Highlight */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Responsive Foundations */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 var(--space-xl);
+  }
+}
