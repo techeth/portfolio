@@ -64,6 +64,10 @@ html {
   color-scheme: dark;
 }
 
+section {
+  scroll-margin-top: 80px;
+}
+
 body {
   min-height: 100vh;
   font-family: var(--font-sans);

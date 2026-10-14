@@ -7,6 +7,9 @@ import styles from "./JourneySection.module.css";
 export default function JourneySection() {
   return (
     <section id="journey" className={styles.journeySection} aria-label="Learning Journey Timeline">
+      {/* Anchor alias for universe navigation */}
+      <span id="universe" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
+
       {/* Subtle Lunar Surface Backdrop */}
       <div className={styles.lunarSurface} aria-hidden="true" />
 

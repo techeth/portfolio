@@ -1,24 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      e.preventDefault();
+      const prefersReducedMotion =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const handleExploreClick = () => {
-    setToastMessage("Stage 02 Active • Universe sections will be unlocked in upcoming stages.");
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 3800);
-  };
+      el.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
 
-  const handleProjectsClick = () => {
-    setToastMessage("Project Galaxy is scheduled for Stage 03 • Stay tuned!");
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 3800);
+      // Update URL hash cleanly without forcing abrupt jump
+      window.history.pushState(null, "", `#${targetId}`);
+    }
   };
 
   return (
@@ -50,26 +54,26 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className={styles.ctaRow}>
-            <button
-              type="button"
+          <div className={styles.ctaRow} role="group" aria-label="Hero Actions">
+            <a
+              href="#journey"
               className={styles.primaryBtn}
-              onClick={handleExploreClick}
+              onClick={(e) => handleScroll(e, "journey")}
               aria-label="Explore My Universe"
             >
               <span>Explore My Universe</span>
               <span className={styles.btnArrow} aria-hidden="true">→</span>
-            </button>
+            </a>
 
-            <button
-              type="button"
+            <a
+              href="#projects"
               className={styles.secondaryBtn}
-              onClick={handleProjectsClick}
+              onClick={(e) => handleScroll(e, "projects")}
               aria-label="View My Projects"
             >
               <span>View My Projects</span>
               <span className={styles.btnArrow} aria-hidden="true">→</span>
-            </button>
+            </a>
           </div>
 
           {/* Technology Labels */}
@@ -102,14 +106,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Interactive Micro-Notice for Temporary Actions */}
-      {toastMessage && (
-        <div className={styles.interactionNotice} role="status">
-          <span className={styles.pulsingDot} aria-hidden="true" />
-          <span>{toastMessage}</span>
-        </div>
-      )}
     </section>
   );
 }
